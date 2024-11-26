@@ -372,6 +372,7 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
 export interface ApiUserListUserList extends Struct.CollectionTypeSchema {
   collectionName: 'user_lists';
   info: {
+    description: '';
     displayName: 'UserList';
     pluralName: 'user-lists';
     singularName: 'user-list';
@@ -394,8 +395,8 @@ export interface ApiUserListUserList extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    UserEmail: Schema.Attribute.Email & Schema.Attribute.Unique;
-    UserName: Schema.Attribute.String;
+    userEmail: Schema.Attribute.Email & Schema.Attribute.Unique;
+    userName: Schema.Attribute.String;
   };
 }
 
