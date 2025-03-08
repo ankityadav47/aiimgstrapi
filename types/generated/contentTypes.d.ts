@@ -369,6 +369,42 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiAiModelAiModel extends Struct.CollectionTypeSchema {
+  collectionName: 'ai_models';
+  info: {
+    displayName: 'AiModel';
+    pluralName: 'ai-models';
+    singularName: 'ai-model';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    aiModelName: Schema.Attribute.String;
+    avatar: Schema.Attribute.Boolean;
+    banner: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    defaultPrompt: Schema.Attribute.Text;
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    isFeatured: Schema.Attribute.Boolean;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::ai-model.ai-model'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    style: Schema.Attribute.Boolean;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    userImageUpload: Schema.Attribute.Boolean;
+  };
+}
+
 export interface ApiUserListUserList extends Struct.CollectionTypeSchema {
   collectionName: 'user_lists';
   info: {
@@ -909,6 +945,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::ai-model.ai-model': ApiAiModelAiModel;
       'api::user-list.user-list': ApiUserListUserList;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
