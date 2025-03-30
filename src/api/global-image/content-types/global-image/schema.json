@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "global_images",
+  "info": {
+    "singularName": "global-image",
+    "pluralName": "global-images",
+    "displayName": "global-images"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "userEmail": {
+      "type": "string"
+    },
+    "userName": {
+      "type": "string"
+    },
+    "imageUrl": {
+      "type": "string"
+    },
+    "imagePublicId": {
+      "type": "string"
+    },
+    "prompt": {
+      "type": "string"
+    },
+    "modelName": {
+      "type": "string"
+    },
+    "isPersonal": {
+      "type": "boolean"
+    }
+  }
+}

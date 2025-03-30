@@ -405,6 +405,73 @@ export interface ApiAiModelAiModel extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiGlobalImageGlobalImage extends Struct.CollectionTypeSchema {
+  collectionName: 'global_images';
+  info: {
+    displayName: 'global-images';
+    pluralName: 'global-images';
+    singularName: 'global-image';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    imagePublicId: Schema.Attribute.String;
+    imageUrl: Schema.Attribute.String;
+    isPersonal: Schema.Attribute.Boolean;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::global-image.global-image'
+    > &
+      Schema.Attribute.Private;
+    modelName: Schema.Attribute.String;
+    prompt: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    userEmail: Schema.Attribute.String;
+    userName: Schema.Attribute.String;
+  };
+}
+
+export interface ApiUserImageUserImage extends Struct.CollectionTypeSchema {
+  collectionName: 'user_images';
+  info: {
+    displayName: 'user-images';
+    pluralName: 'user-images';
+    singularName: 'user-image';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    imagePublicId: Schema.Attribute.String;
+    imageUrl: Schema.Attribute.String;
+    isPersonal: Schema.Attribute.Boolean;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::user-image.user-image'
+    > &
+      Schema.Attribute.Private;
+    modelName: Schema.Attribute.String;
+    prompt: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    userEmail: Schema.Attribute.String;
+  };
+}
+
 export interface ApiUserListUserList extends Struct.CollectionTypeSchema {
   collectionName: 'user_lists';
   info: {
@@ -946,6 +1013,8 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::ai-model.ai-model': ApiAiModelAiModel;
+      'api::global-image.global-image': ApiGlobalImageGlobalImage;
+      'api::user-image.user-image': ApiUserImageUserImage;
       'api::user-list.user-list': ApiUserListUserList;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

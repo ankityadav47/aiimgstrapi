@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "user_images",
+  "info": {
+    "singularName": "user-image",
+    "pluralName": "user-images",
+    "displayName": "user-images"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "userEmail": {
+      "type": "string"
+    },
+    "imageUrl": {
+      "type": "string"
+    },
+    "imagePublicId": {
+      "type": "string"
+    },
+    "prompt": {
+      "type": "string"
+    },
+    "modelName": {
+      "type": "string"
+    },
+    "isPersonal": {
+      "type": "boolean"
+    }
+  }
+}
