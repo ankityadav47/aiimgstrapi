@@ -4,7 +4,8 @@
   "info": {
     "singularName": "global-image",
     "pluralName": "global-images",
-    "displayName": "global-images"
+    "displayName": "global-images",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -18,7 +19,7 @@
       "type": "string"
     },
     "imageUrl": {
-      "type": "string"
+      "type": "text"
     },
     "imagePublicId": {
       "type": "string"

@@ -408,6 +408,7 @@ export interface ApiAiModelAiModel extends Struct.CollectionTypeSchema {
 export interface ApiGlobalImageGlobalImage extends Struct.CollectionTypeSchema {
   collectionName: 'global_images';
   info: {
+    description: '';
     displayName: 'global-images';
     pluralName: 'global-images';
     singularName: 'global-image';
@@ -420,7 +421,7 @@ export interface ApiGlobalImageGlobalImage extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     imagePublicId: Schema.Attribute.String;
-    imageUrl: Schema.Attribute.String;
+    imageUrl: Schema.Attribute.Text;
     isPersonal: Schema.Attribute.Boolean;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -442,6 +443,7 @@ export interface ApiGlobalImageGlobalImage extends Struct.CollectionTypeSchema {
 export interface ApiUserImageUserImage extends Struct.CollectionTypeSchema {
   collectionName: 'user_images';
   info: {
+    description: '';
     displayName: 'user-images';
     pluralName: 'user-images';
     singularName: 'user-image';
@@ -454,7 +456,7 @@ export interface ApiUserImageUserImage extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     imagePublicId: Schema.Attribute.String;
-    imageUrl: Schema.Attribute.String;
+    imageUrl: Schema.Attribute.Text;
     isPersonal: Schema.Attribute.Boolean;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
