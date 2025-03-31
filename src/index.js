@@ -7,19 +7,7 @@ module.exports = {
    *
    * This gives you an opportunity to extend code.
    */
-  register({ strapi }) {
-    // Add health check endpoint
-    strapi.server.routes({
-      method: 'GET',
-      path: '/_health',
-      handler: (ctx) => {
-        ctx.body = 'ok';
-      },
-      config: {
-        auth: false,
-      }
-    });
-  },
+  register(/*{ strapi }*/) {},
 
   /**
    * An asynchronous bootstrap function that runs before
@@ -28,9 +16,5 @@ module.exports = {
    * This gives you an opportunity to set up your data model,
    * run jobs, or perform some special logic.
    */
-  bootstrap({ strapi }) {
-    // Load and run the admin creation script on bootstrap
-    const createAdmin = require('../scripts/create-admin');
-    return createAdmin({ strapi });
-  },
+  bootstrap(/*{ strapi }*/) {},
 };
