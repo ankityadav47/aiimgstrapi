@@ -7,7 +7,19 @@ module.exports = {
    *
    * This gives you an opportunity to extend code.
    */
-  register(/*{ strapi }*/) {},
+  register({ strapi }) {
+    // Add health check endpoint
+    strapi.server.routes({
+      method: 'GET',
+      path: '/_health',
+      handler: (ctx) => {
+        ctx.body = 'ok';
+      },
+      config: {
+        auth: false,
+      }
+    });
+  },
 
   /**
    * An asynchronous bootstrap function that runs before
